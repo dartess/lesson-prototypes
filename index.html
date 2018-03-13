@@ -1,95 +1,468 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-	<title>Shower Presentation Engine</title>
+	<title>Механизм прототипов в JavaScript</title>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+	<style>
+		.check-hide {
+			visibility: hidden;
+		}
+
+		.check-hide+label {
+			opacity: 0;
+			display: inline;
+			padding-right: 20vw;
+		}
+
+		.check-hide:checked+label {
+			opacity: 1;
+		}
+
+		.question::before {
+			content: "?";
+			display: block;
+			position: absolute;
+			font-size: 102vh;
+			left: -5.2vw;
+			top: -19.1vh;
+			z-index: -1;
+			opacity: 0.1;
+			line-height: 1;
+			font-weight: bold;
+		}
+	</style>
 </head>
+
 <body class="shower list">
 
 	<header class="caption">
-		<h1>Shower Presentation Engine</h1>
-		<p>Yours Truly, Famous Inc.</p>
+		<h1>Механизм прототипов в JavaScript</h1>
+		<p>Наследование и вот это всё.</p>
 	</header>
 
-	<section class="slide" id="cover">
-		<h2>Shower Presentation Engine</h2>
-		<p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
-		<figure>
-			<img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
-		<style>
-			#cover h2 {
-				margin:30px 0 0;
-				color:#FFF;
-				text-align:center;
-				font-size:70px;
-				}
-			#cover p {
-				margin:10px 0 0;
-				text-align:center;
-				color:#FFF;
-				font-style:italic;
-				font-size:20px;
-				}
-				#cover p a {
-					color:#FFF;
-					}
-		</style>
+	<section class="slide question">
+		<h2>Знак вопроса</h2>
+		<p>На таких слайдах будут вопросы к залу.</p>
+		<p>Кого спрашивать, кого нет?</p>
 	</section>
 
-	<section class="slide">
-		<h2>Shower key features</h2>
-		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
-		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
-	</section>
 
 	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+		<h2>Вступление</h2>
+		<p>Что нужно знать, чтобы усвоить материал урока.</p>
 	</section>
 
-	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-
-	<section class="slide">
-		<h2>All kind of lists</h2>
-		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
+	<sections class="slide question">
+		<h2>Типы данных</h2>
+		<p>Назовите 7 типов данных</p>
+		<ul>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="number">
+				<label for="number">число</label>
 			</li>
-			<li>Look, seven rows exactly!</li>
-		</ol>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="string">
+				<label for="string">строка</label>
+			</li>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="bool">
+				<label for="bool">логический</label>
+			</li>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="null">
+				<label for="null">null</label>
+			</li>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="undefined">
+				<label for="undefined">undefined</label>
+			</li>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="symbol">
+				<label for="symbol">символ</label>
+			</li>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="object">
+				<label for="object">объект</label>
+			</li>
+		</ul>
+	</sections>
+
+	<section class="slide question">
+		<h2>Типы данных</h2>
+		<p>На какие группы можно разделить все типы данных?</p>
+	</section>
+
+	<sections class="slide">
+		<h2>Типы данных</h2>
+		<ul>
+			<li style="color:slateblue">число</li>
+			<li style="color:slateblue">строка</li>
+			<li style="color:slateblue">логический</li>
+			<li style="color:slateblue">null</li>
+			<li style="color:slateblue">undefined</li>
+			<li style="color:slateblue">символ</li>
+			<li style="color:goldenrod">объект</li>
+		</ul>
+	</sections>
+
+	<section class="slide question">
+		<h2>Типы данных</h2>
+		<p>К какому типу данных относятся массивы? Функции? Классы?</p>
 	</section>
 
 	<section class="slide">
-		<h2>Serious citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
+		<h2>Типы данных</h2>
+		<p>Функция — объект, который можно вызвать.</p>
+	</section>
+
+	<section class="slide question">
+		<h2>Типы данных</h2>
+		<p>Верно ли утверждение, что всё в JavaScript — объект?</p>
+	</section>
+
+	<section class="slide question">
+		<h2>Объекты в JavaScript</h2>
+		<p>Как бы вы описали объект в JavaScript?</p>
+	</section>
+
+	<section class="slide">
+		<h2>Объекты в JavaScript</h2>
+		<p>Набор пар
+			<em>
+				<свойство>
+			</em>:
+			<em>
+				<значение>
+			</em>
+		</p>
+		<pre class="">
+			<code>{</code>
+			<code>    property: 0;</code>
+			<code>    key: undefined;</code>
+			<code>    field: "example";</code>
+			<code>    color: "#FFCC11";</code>
+			<code>    method: () => console.log("aloha!");</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide question">
+		<h2>Объекты в JavaScript</h2>
+		<p>Объект в JS, как структура хранения данных, может называться по&nbsp;разному в других языках программирования.</p>
+		<ul class="next">
+			<li>объект</li>
+			<li>словарь</li>
+			<li>карта, отображение (map)</li>
+			<li>хэш-таблица</li>
+		</ul>
+		<p class="next">Объект в JS —
+			<em>не</em> соотвествует понятию объекта в ООП.</p>
+	</section>
+
+	<section class="slide question">
+		<h2>Объекты в JavaScript</h2>
+		<p>Свойства также могут называться по разному:</p>
+		<ul class="next">
+			<li>
+				<strong>свойство</strong>
+			</li>
+			<li>ключ</li>
+			<li>поле</li>
+			<li>
+				<strong>метод</strong>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Объекты в JavaScript</h2>
+		<p>
+			<em>Методами</em> условно называют те
+			<em>свойства</em>,
+			<em>значением</em> которых являются функции.</p>
+	</section>
+
+	<section class="slide question">
+		<h2>Объекты в JavaScript</h2>
+		<p>Какого типа может быть свойство?</p>
+		<ul>
+			<li class="next">строка</li>
+			<li class="next">символ</li>
+		</ul>
+	</section>
+
+	<section class="slide question">
+		<h2>Объекты в JavaScript</h2>
+		<p>Какого типа может быть значение свойства?</p>
+		<p class="next">Любого.</p>
+	</section>
+
+	<section class="slide question">
+		<h2>Данные в памяти</h2>
+		<p>Где хранятся данные?</p>
+	</section>
+
+	<section class="slide">
+		<h2>Данные в памяти</h2>
+		<p>Каждая ячейка — один байт.</p>
+		<style>
+			.memory {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, 5vw);
+				grid-gap: 0.5vw;
+				padding: 0.5vw;
+				counter-reset: memory -1;
+			}
+
+			.memory--small {
+				transform-origin: 0 0;
+				transform: scale(0.5);
+			}
+
+			.memory--very-small {
+				transform-origin: 0 0;
+				transform: scale(0.5);
+			}
+
+			.memory i {
+				counter-increment: memory;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 5vw;
+				height: 5vw;
+				background-color: white;
+				position: relative;
+				box-shadow: 0 0 0 0.5vw silver;
+			}
+
+			.memory i::before {
+				content: "#"counter(memory);
+				position: absolute;
+				right: 0px;
+				bottom: 0px;
+				color: gray;
+				padding-right: 0.1em;
+				line-height: 1em;
+			}
+
+			.memory--very-small {
+				grid-template-columns: repeat(auto-fill, 2.5vw);
+			}
+
+			.memory--very-small i {
+				width: 2.5vw;
+				height: 2.5vw;
+				font-size: 0.7em;
+			}
+		</style>
+		<div class="memory next"></div>
+	</section>
+
+	<section class="slide">
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small"></div>
+	</section>
+
+	<section class="slide question">
+		<h2>Данные в памяти</h2>
+		<pre>
+			<code>var a = 5;</code>
+		</pre>
+		<p>Что в переменной <code>a</code>?</p>
+	</section>
+
+	<section class="slide question">
+		<h2>Данные в памяти</h2>
+		<pre>
+			<code>var a = 5;</code>
+			<code>var b = a;</code>
+		</pre>
+		<p>Что в переменной <code>b</code>?</p>
+	</section>
+
+	<section class="slide question">
+		<h2>Данные в памяти</h2>
+		<pre>
+			<code>var c = [];</code>
+		</pre>
+		<p>Что в переменной <code>c</code>?</p>
+	</section>
+
+	<section class="slide question">
+		<h2>Данные в памяти</h2>
+		<pre>
+			<code>var c = [];</code>
+			<code>var d = c;</code>
+		</pre>
+		<p>Что в переменной <code>d</code>?</p>
+	</section>
+
+	<section class="slide">
+		<style>
+			.right-code {
+				position: absolute;
+				left: 58%;
+				top: 20vh;
+			}
+		</style>
+		<style>
+			.boolean {
+				background-color: rgba(255, 0, 0, .2) !important;
+			}
+			.null {
+				background-color: rgba(255, 0, 255, .2) !important;
+			}
+			.num {
+				background-color: rgba(255, 255, 0, .2) !important;
+			}
+		</style>
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small">
+			<i class="value boolean boolean--1">true</i>
+		</div>
+		<pre class="right-code">
+			<code>var isTrue = true;</code>
+			<code>// [0] = true</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small">
+			<i class="value boolean">true</i>
+			<i class="value boolean">false</i>
+		</div>
+		<pre class="right-code">
+			<code>var isTrue = true;</code>
+			<code>// [0] = true</code>
+			<code>var dynamic = false;</code>
+			<code>// [1] = false</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small">
+			<i class="value boolean value--1">true</i>
+			<i class="value null value--2">null</i>
+		</div>
+		<pre class="right-code">
+			<code>var isTrue = true;</code>
+			<code>// [0] = true</code>
+			<code>var dynamic = false;</code>
+			<code>// [1] = false</code>
+			<code>var dynamic = null;</code>
+			<code>// [1] = null</code>
+		</pre>
+	</section>
+
+	<section class="slide question">
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small">
+			<i class="value boolean">true</i>
+			<i class="value null">null</i>
+		</div>
+		<pre class="right-code">
+			<code>var isTrue = true;</code>
+			<code>var dynamic = null;</code>
+			<code>var a = 5;</code>
+			<code>// [??] = ??</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small">
+			<i class="value boolean">true</i>
+			<i class="value null">null</i>
+			<i class="value num">5</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+		</div>
+		<pre class="right-code">
+			<code>var isTrue = true;</code>
+			<code>var dynamic = null;</code>
+			<code>var a = 5;</code>
+			<code>// [2] = 0x4014000000000000</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small">
+			<i class="value boolean">true</i>
+			<i class="value null">null</i>
+			<i class="value num">5</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num">5</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+		</div>
+		<pre class="right-code">
+			<code>var isTrue = true;</code>
+			<code>var dynamic = null;</code>
+			<code>var a = 5;</code>
+			<code>var b = a;</code>
+			<code>// [10] = 0x4014000000000000</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small">
+			<i class="value boolean">true</i>
+			<i class="value null">null</i>
+			<i class="value num">0.1</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num">5</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+		</div>
+		<pre class="right-code">
+			<code>var isTrue = true;</code>
+			<code>var dynamic = null;</code>
+			<code>var a = 5;</code>
+			<code>var b = a;</code>
+			<code>a = 0.1;</code>
+			<code>// [2] = 0x3FB999999999999A</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--very-small"></div>
 	</section>
 
 	<section class="slide">
@@ -105,101 +478,19 @@
 		</pre>
 	</section>
 
-	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
-	</section>
-
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<figure>
-			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
-		<style>
-			#picture h2 {
-				color:#FFF;
-				}
-		</style>
-	</section>
-
-	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
-	</section>
-
-	<section class="slide">
-		<h2>Inner navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
-	</section>
-
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
-	</section>
-
-	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
-		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
-	</section>
-
-	<footer class="badge">
-		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
-	</footer>
-
 	<div class="progress"></div>
 
 	<script src="node_modules/shower-core/shower.min.js"></script>
 	<!-- Copyright © 2018 Yours Truly, Famous Inc. -->
 
+	<script>
+		const $ = document.querySelectorAll.bind(document);
+		$(".memory").forEach(mem => {
+			const memContent = mem.innerHTML;
+			mem.innerHTML = memContent + `<i></i>`.repeat(500);
+		})
+	</script>
+
 </body>
+
 </html>
