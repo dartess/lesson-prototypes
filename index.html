@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
 	<style>
 		.check-hide {
 			visibility: hidden;
@@ -30,7 +30,7 @@
 			left: -5.2vw;
 			top: -19.1vh;
 			z-index: -1;
-			opacity: 0.1;
+			opacity: 0.05;
 			line-height: 1;
 			font-weight: bold;
 		}
@@ -50,10 +50,14 @@
 		<p>Кого спрашивать, кого нет?</p>
 	</section>
 
-
 	<section class="slide">
 		<h2>Вступление</h2>
 		<p>Что нужно знать, чтобы усвоить материал урока.</p>
+	</section>
+
+	<section class="slide">
+		<h2>Вступление</h2>
+		<p>Не понятно — спроси!</p>
 	</section>
 
 	<sections class="slide question">
@@ -154,27 +158,23 @@
 		<h2>Объекты в JavaScript</h2>
 		<p>Объект в JS, как структура хранения данных, может называться по&nbsp;разному в других языках программирования.</p>
 		<ul class="next">
-			<li>объект</li>
-			<li>словарь</li>
-			<li>карта, отображение (map)</li>
-			<li>хэш-таблица</li>
+			<li style="line-height: 1.4">объект</li>
+			<li style="line-height: 1.4">словарь</li>
+			<li style="line-height: 1.4">карта, отображение (map)</li>
+			<li style="line-height: 1.4">хэш-таблица</li>
+			<li style="line-height: 1.4">ассоциативный массив</li>
 		</ul>
-		<p class="next">Объект в JS —
-			<em>не</em> соотвествует понятию объекта в ООП.</p>
+		<p class="next">Объект в JS — <em>не</em> соотвествует понятию объекта в ООП.</p>
 	</section>
 
 	<section class="slide question">
 		<h2>Объекты в JavaScript</h2>
 		<p>Свойства также могут называться по разному:</p>
 		<ul class="next">
-			<li>
-				<strong>свойство</strong>
-			</li>
+			<li><strong>свойство</strong></li>
 			<li>ключ</li>
 			<li>поле</li>
-			<li>
-				<strong>метод</strong>
-			</li>
+			<li><strong>метод</strong></li>
 		</ul>
 	</section>
 
@@ -320,6 +320,12 @@
 			.num {
 				background-color: rgba(255, 255, 0, .2) !important;
 			}
+			.string {
+				background-color: rgba(0, 255, 255, .2) !important;
+			}
+			.object {
+				background-color: rgba(0, 255, 0, .2) !important;
+			}
 		</style>
 		<h2>Данные в памяти</h2>
 		<div class="memory memory--small">
@@ -462,25 +468,496 @@
 
 	<section class="slide">
 		<h2>Данные в памяти</h2>
-		<div class="memory memory--very-small"></div>
+		<div class="memory memory--small">
+			<i class="value boolean">true</i>
+			<i class="value null">null</i>
+			<i class="value num">0.1</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num">5</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value string">П</i>
+			<i class="value string"></i>
+			<i class="value string">р</i>
+			<i class="value string"></i>
+			<i class="value string">и</i>
+			<i class="value string"></i>
+			<i class="value string">в</i>
+			<i class="value string"></i>
+			<i class="value string">е</i>
+			<i class="value string"></i>
+			<i class="value string">т</i>
+			<i class="value string"></i>
+			<i class="value string">\0</i>
+			<i class="value string"></i>
+		</div>
+		<pre class="right-code">
+			<code>var isTrue = true;</code>
+			<code>var dynamic = null;</code>
+			<code>var a = 5;</code>
+			<code>var b = a;</code>
+			<code>a = 0.1;</code>
+			<code>var c = "Привет"</code>
+			<code>// [18] = Привет\0</code>
+		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Code samples</h2>
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small">
+			<i class="value boolean">true</i>
+			<i class="value null">null</i>
+			<i class="value num">0.1</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num">5</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value string">П</i>
+			<i class="value string"></i>
+			<i class="value string">р</i>
+			<i class="value string"></i>
+			<i class="value string">и</i>
+			<i class="value string"></i>
+			<i class="value string">в</i>
+			<i class="value string"></i>
+			<i class="value string">е</i>
+			<i class="value string"></i>
+			<i class="value string">т</i>
+			<i class="value string"></i>
+			<i class="value string">\0</i>
+			<i class="value string"></i>
+			<i class="value object">[20]</i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+		</div>
+
+		<pre class="right-code" style="top: 10vh;">
+			<code>var d = {foo: "bar"}</code>
+			<code>// [32] = [20]</code>
+		</pre>
+
+		<div class="memory memory--small next" style="
+			transform-origin: right top;
+			position: absolute;
+			right: 34px;
+			top: 40%;
+			width: 80%;
+		">
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Данные в памяти</h2>
+		<div class="memory memory--small">
+			<i class="value boolean">true</i>
+			<i class="value null">null</i>
+			<i class="value num">0.1</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num">5</i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value num"></i>
+			<i class="value string">П</i>
+			<i class="value string"></i>
+			<i class="value string">р</i>
+			<i class="value string"></i>
+			<i class="value string">и</i>
+			<i class="value string"></i>
+			<i class="value string">в</i>
+			<i class="value string"></i>
+			<i class="value string">е</i>
+			<i class="value string"></i>
+			<i class="value string">т</i>
+			<i class="value string"></i>
+			<i class="value string">\0</i>
+			<i class="value string"></i>
+			<i class="value object">[20]</i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object">[20]</i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+		</div>
+
+		<pre class="right-code" style="top: 10vh;">
+			<code>var d = {foo: "bar"}</code>
+			<code>var e = d</code>
+			<code>// [40] = [20]</code>
+		</pre>
+
+		<div class="memory memory--small" style="
+			transform-origin: right top;
+			position: absolute;
+			right: 34px;
+			top: 40%;
+			width: 80%;
+		">
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+			<i class="value object"></i>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>На самом деле...</h2>
+		<p class="next">...всё намного сложнее.</p>
+		<p class="next">Но. Мы действительно можем работать только со ссылками на объект, а не с самими объектами.</p>
+	</section>
+
+	<section class="slide question">
+		<h2>__proto__ и prototype</h2>
+		<p class="next">Свойства объектов, реализующие механизм наследования в JavaScript.</p>
+		<p class="next">Четыре вопроса:</p>
+		<ol class="next">
+			<li>Что это?</li>
+			<li>Откуда берётся?</li>
+			<li>Как работает?</li>
+			<li>Зачем?</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>__proto__: что это?</h2>
+		<ul>
+			<li class="next"><i><b><ins>Служебное</ins></b></i> свойство объекта</li>
+			<li class="next">В спецификации называется <code>[[Prototype]]</code></li>
+			<li class="next">(!) не путать с <code>prototype</code></li>
+			<li class="next">Содержит либо <ins>указатель на объект</ins>, либо <code>null</code></li>
+			<li class="next">Может отсутствовать в объекте</li>
+			<li class="next">Невозможно установить как обычное свойство</li>
+		</ul>
+	</section>
+
+	<section class="slide question">
+		<h2>Способы создания объектов в JavaScript</h2>
+		<p>
+			Назовите все способы создания объектов в JavaScript?
+		</p>
+		<ul>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="o1">
+				<label for="o1">Литеральная нотация: <code>{}</code> и <code>[]</code></label>
+			</li>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="o2">
+				<label for="o2">Оператор <code>new</code></label>
+			</li>
+			<li>
+				<input type="checkbox" class="hidden check-hide" id="o3">
+				<label for="o3"><code>Object.create(prototypeOrNull)</code></label>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide question">
+		<h2>Способы создания объектов в JavaScript</h2>
+		<p>Под капотом — способ всего лишь один.</p>
+		<p class="next"><code>Object.create(prototypeOrNull)</code></p>
+		<p class="next" style="font-size: 0.8em;"><code>var a = {};</code> это <code>var a = Object.create(Object.prototype)</code></p>
+		<p class="next" style="font-size: 0.8em;"><code>var a = [];</code> это <code>var a = Object.create(Array.prototype)</code></p>
+		<p class="next" style="font-size: 0.8em;"><code>var a = new Test();</code> это <code>var a = Object.create(Test.prototype)</code></p>
+	</section>
+
+	<section class="slide">
+		<h2>__proto__: откуда берётся?</h2>
+		<p>
+			<code>var a = Object.create(prototypeOrNull);</code>
+		</p>
+		<p>
+			<code>// a === {__proto__: prototypeOrNull}</code>
+		</p>
+		<img src="./pictures/1447055118199074700.jpg" alt="" style="opacity: 0.1">
+	</section>
+
+	<section class="slide">
+		<h2>__proto__: как работает?</h2>
 		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
+			<code>val testObj = {</code>
+			<code> exampleField: 10</code>
+			<code>};</code>
+			<code>console.log(testObj.exampleField)</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>__proto__: как работает?</h2>
+		<pre>
+			<code style="line-height: 1.6;">console.log(getField(testObj, "exampleField")</code>
+			<code style="line-height: 1.6;">function getField(object, fieldName) {</code>
+			<code style="line-height: 1.6;">    do {</code>
+			<code style="line-height: 1.6;">        if (fieldName in object) {</code>
+			<code style="line-height: 1.6;">            return object[fieldName];</code>
+			<code style="line-height: 1.6;">        } else {</code>
+			<code style="line-height: 1.6;">            object = object.__proto__;</code>
+			<code style="line-height: 1.6;">        }</code>
+			<code style="line-height: 1.6;">    } while (object && typeof object === 'object');</code>
+			<code style="line-height: 1.6;">    return undefined;</code>
+			<code style="line-height: 1.6;">}</code>
+		</pre>
+	</section>
+
+	<section class="slide question">
+		<h2>__proto__: зачем?</h2>
+		<p class="next">Позволяет задать одно "хранилище" методов и свойств для схожих объектов.</p>
+	</section>
+
+	<section class="slide question">
+		<h2>__proto__: зачем?</h2>
+		<pre>
+			<code style="line-height: 1.5;">var examplePrototype = {</code>
+			<code style="line-height: 1.5;">    getSquare: function() {</code>
+			<code style="line-height: 1.5;">		return this.a ** 2;</code>
+			<code style="line-height: 1.5;">	}</code>
+			<code style="line-height: 1.5;">}</code>
+			<code style="line-height: 1.5;">var obj1 = Object.create(examplePrototype);</code>
+			<code style="line-height: 1.5;">var obj2 = Object.create(examplePrototype);</code>
+			<code style="line-height: 1.5;">var obj3 = Object.create(examplePrototype);</code>
+			<code style="line-height: 1.5;">obj1.a = 5;</code>
+			<code style="line-height: 1.5;">obj2.a = 6;</code>
+			<code style="line-height: 1.5;">obj3.a = 7;</code>
+			<code style="line-height: 1.5;">console.log(obj2.getSquare())</code>
+		</pre>
+	</section>
+
+	<section class="slide question">
+		<h2>__proto__</h2>
+		<p>Вопросы?</p>
+	</section>
+
+	<section class="slide">
+		<h2>prototype: что это?</h2>
+		<ul>
+			<li class="next">Свойство объекта-функции</li>
+			<li class="next">Содержит что угодно</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>prototype: откуда берётся?</h2>
+		<p class="next">Создаётся <ins>автоматически</ins> при создании функции (не стрелочной).</p>
+		<p class="next">По умолчанию указывает на объект, содержащий свойство <code>constructor</code>, равное самой функции.</p>
+		<pre class="next">
+			<code style="line-height: 1.6;">function test() {}</code>
+			<code style="line-height: 1.6;">// test.prototype = {</code>
+			<code style="line-height: 1.6;">//     constructor: test</code>
+			<code style="line-height: 1.6;">// }</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>prototype: как работает?</h2>
+		<p>При использовании оператора <code>new</code>.</p>
+	</section>
+
+	<section class="slide question">
+		<h2>prototype: как работает?</h2>
+		<pre>
+			<code style="line-height: 1.6;">function F() { this.qwerty = 5 }</code>
+			<code style="line-height: 1.6;">var a = F();</code>
+		</pre>
+		<p>Как получить присвоенное число "5"?</p>
+	</section>
+
+	<section class="slide question">
+		<h2>prototype: как работает?</h2>
+		<pre>
+			<code style="line-height: 1.6;">function F() { this.qwerty = 5 }</code>
+			<code style="line-height: 1.6;">var a = new F();</code>
+		</pre>
+		<p>Как получить присвоенное число "5"?</p>
+	</section>
+
+	<section class="slide">
+		<h2>prototype: как работает?</h2>
+		<p>При использовании <code>new</code> есть отличия:</p>
+		<pre>
+			<code style="line-height: 1.6;">function F() {</code>
+			<code style="line-height: 1.6;">    // this = Object.create(F.prototype);</code>
+			<code style="line-height: 1.6;">    this.qwerty = 5;</code>
+			<code style="line-height: 1.6;">    // return this;</code>
+			<code style="line-height: 1.6;">}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>prototype: зачем?</h2>
+		<p class="next">Вместе с <code>new</code> позволяет упростить создание объектов в одинаковым <code>__proto__</code></p>
+	</section>
+
+	<section class="slide question">
+		<h2>prototype</h2>
+		<p>Вопросы?</p>
+	</section>
+
+	<section class="slide question">
+		<h2>__proto__ и prototype</h2>
+		<pre>
+			<code style="line-height: 1.6;">function F() {}</code>
+			<code style="line-height: 1.6;">var a = new F();</code>
+			<code style="line-height: 1.6;">var b = new F();</code>
+			<code class="mark" style="line-height: 1.6;">a.test = function() {};</code>
+			<code style="line-height: 1.6;">&nbsp;</code>
+			<code style="line-height: 1.6;">console.log(typeof a.test);</code>
+			<code style="line-height: 1.6;">console.log(typeof b.test);</code>
+			<code style="line-height: 1.6;">console.log(a.test === b.test);</code>
+		</pre>
+	</section>
+
+	<section class="slide question">
+		<h2>__proto__ и prototype</h2>
+		<pre>
+			<code style="line-height: 1.6;">function F() {}</code>
+			<code class="mark" style="line-height: 1.6;">F.prototype.test = function() {};</code>
+			<code style="line-height: 1.6;">var a = new F();</code>
+			<code style="line-height: 1.6;">var b = new F();</code>
+			<code style="line-height: 1.6;">&nbsp;</code>
+			<code style="line-height: 1.6;">console.log(typeof a.test);</code>
+			<code style="line-height: 1.6;">console.log(typeof b.test);</code>
+			<code style="line-height: 1.6;">console.log(a.test === b.test);</code>
+		</pre>
+	</section>
+
+	<section class="slide question">
+		<h2>__proto__ и prototype</h2>
+		<pre>
+			<code style="line-height: 1.6;">function F() {}</code>
+			<code style="line-height: 1.6;">var a = new F();</code>
+			<code style="line-height: 1.6;">var b = new F();</code>
+			<code class="mark" style="line-height: 1.6;">a.__proto__.test = function() {};</code>
+			<code style="line-height: 1.6;">&nbsp;</code>
+			<code style="line-height: 1.6;">console.log(typeof a.test);</code>
+			<code style="line-height: 1.6;">console.log(typeof b.test);</code>
+			<code style="line-height: 1.6;">console.log(a.test === b.test);</code>
 		</pre>
 	</section>
 
 	<div class="progress"></div>
 
-	<script src="node_modules/shower-core/shower.min.js"></script>
+	<script src="shower/shower.min.js"></script>
 	<!-- Copyright © 2018 Yours Truly, Famous Inc. -->
 
 	<script>
